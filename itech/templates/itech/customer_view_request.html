@@ -1,0 +1,59 @@
+{% extends 'itech/customerbase.html' %}
+{% block content %}
+
+<!-- main content -->
+<div class="wrapper">
+
+    <!-- ****** table start ********** -->
+    <div class="row">
+        <div class="col-12 col-m-12 col-sm-12">
+            <div class="card">
+                <div class="card-header">
+                    <h3 style="color:red; text-align:center">Your Support Tickets</h3>
+                </div>
+                <div class="card-content">
+                    <table class="table table-striped">
+                        <thead>
+                            <tr>
+                                <th>Ticket Title</th>
+                                <th>Description</th>
+                                <th>Created At</th>
+                                <th>Status</th>
+                                <th>Assigned Technician</th>
+                                <th>Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {% for ticket in tickets %}
+                            <tr>
+                                <td>{{ ticket.title }}</td>
+                                <td>{{ ticket.description }}</td>
+                                <td>{{ ticket.created_at|date:"Y-m-d H:i" }}</td>
+                                <td>{{ ticket.status }}</td>
+                                <td>
+																	{% if ticket.technician %}
+																			{{ ticket.technician.get_name }}
+																	{% else %}
+																			Not Assigned
+																	{% endif %}
+															</td>
+                                <td>
+                                    <a style="color:blue; text-decoration:none;" href="{% url 'customer-delete-ticket' ticket.id %}">&#10008;</a>
+                                </td>
+                            </tr>
+                            {% empty %}
+                            <tr>
+                                <td colspan="6" style="text-align:center;">No tickets found.</td>
+                            </tr>
+                            {% endfor %}
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- ****** table end ********** -->
+    <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+</div>
+<!-- end main content -->
+{% endblock content %}

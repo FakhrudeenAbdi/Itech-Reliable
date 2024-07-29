@@ -1,0 +1,20 @@
+{% extends 'itech/customerbase.html' %}
+{% block content %}
+<h1>Internet Usage</h1>
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th>Date</th>
+            <th>Usage (GB)</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for usage in usage_history %}
+        <tr>
+            <td>{{ usage.date }}</td>
+            <td>{{ usage.data_used }}</td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+{% endblock %}

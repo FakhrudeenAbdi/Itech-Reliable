@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+{% load static bootstrap4 %}
+<html lang="en" dir="ltr">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+  <title>About Us - ITECH Reliable</title>
+
+  <!-- Use bootstrap_css tag to include Bootstrap CSS -->
+  {% bootstrap_css %}
+
+  <style media="screen">
+    .jumbotron {
+      margin-top: 0px;
+      margin-bottom: 0px;
+      background-color: #007bff;
+      color: white;
+    }
+
+    .jumbotron h1 {
+      text-align: center;
+      font-size: 3rem;
+    }
+
+    .alert {
+      margin: 0px;
+    }
+
+    .mission-vision {
+      margin: 20px 0;
+      text-align: center;
+    }
+
+    .mission-vision h3 {
+      color: #007bff;
+    }
+
+    .team {
+      margin-top: 30px;
+      text-align: center;
+    }
+
+    .team img {
+      border-radius: 50%;
+      width: 120px;
+      height: 120px;
+    }
+
+    .team-member {
+      margin: 20px 0;
+    }
+
+    .marquee-wrapper {
+      background-color: #f8f9fa;
+      padding: 10px 0;
+    }
+  </style>
+</head>
+
+<body>
+
+  {% include "itech/navbar.html" %}
+  <br><br>
+  <center>
+    <h3 class='alert alert-success' style="margin-bottom:0px;">About Us!</h3>
+  </center>
+  
+  <div class="jumbotron">
+    <h1 class="display-4">Welcome to ITECH Reliable</h1>
+    <p class="lead">Your trusted partner in internet service management</p>
+    <hr class="my-4">
+    <p>At ITECH Reliable, we are committed to providing high-quality internet solutions tailored to meet your needs.</p>
+    <p class="lead">
+      <a class="btn btn-light btn-lg" href="/" role="button">HOME</a>
+    </p>
+  </div>
+
+  <div class="container mission-vision">
+    <h3>Our Mission</h3>
+    <p>To deliver reliable and affordable internet services that empower our customers and enhance their online experiences.</p>
+    
+    <h3>Our Vision</h3>
+    <p>To be the leading ISP management provider, known for our commitment to innovation, customer satisfaction, and community engagement.</p>
+  </div>
+
+  <div class="container team">
+    <h2>Meet Our Team</h2>
+    <div class="row">
+      <div class="col-md-4 team-member">
+        <img src="{% static 'images/team_member1.jpg' %}" alt="Team Member 1">
+        <h5>John Doe</h5>
+        <p>CEO & Founder</p>
+      </div>
+      <div class="col-md-4 team-member">
+        <img src="{% static 'images/team_member2.jpg' %}" alt="Team Member 2">
+        <h5>Jane Smith</h5>
+        <p>Chief Technology Officer</p>
+      </div>
+      <div class="col-md-4 team-member">
+        <img src="{% static 'images/team_member3.jpg' %}" alt="Team Member 3">
+        <h5>Alice Johnson</h5>
+        <p>Customer Support Manager</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="marquee-wrapper">
+    <marquee behavior="scroll" direction="left">
+      <img src="{% static 'images/ferrari.png' %}" width="120" height="80" alt="ferrari" />
+      <img src="{% static 'images/ford.png' %}" width="120" height="80" alt="ford" />
+      <img src="{% static 'images/lambo.png' %}" width="120" height="80" alt="lambo" />
+      <img src="{% static 'images/mahindra.png' %}" width="120" height="80" alt="mahindra" />
+      <img src="{% static 'images/tvs.png' %}" width="120" height="80" alt="tvs" />
+      <img src="{% static 'images/tata.png' %}" width="120" height="80" alt="tata" />
+      <img src="{% static 'images/hero.png' %}" width="120" height="80" alt="hero" />
+      <img src="{% static 'images/rolls.png' %}" width="120" height="80" alt="rolls" />
+      <img src="{% static 'images/suzuki.png' %}" width="120" height="80" alt="suzuki" />
+    </marquee>
+  </div>
+
+  {% include "itech/footer.html" %}
+  
+  <!-- Use bootstrap_javascript tag to include Bootstrap JS and its dependencies -->
+  {% bootstrap_javascript jquery='full' %}
+  
+</body>
+
+</html>

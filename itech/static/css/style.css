@@ -1,0 +1,145 @@
+/* General Styles */
+body {
+  font-family: 'Arial', sans-serif;
+  color: #333;
+}
+
+/* Header Section */
+.header {
+  background-color: #007bff;
+  color: #fff;
+  padding: 80px 0;
+}
+
+.header h1 {
+  font-size: 48px;
+  font-weight: bold;
+  margin-bottom: 20px;
+}
+
+.header p {
+  font-size: 24px;
+  margin-bottom: 40px;
+}
+
+.header .btn {
+  font-size: 18px;
+  padding: 12px 30px;
+}
+
+/* Features Section */
+.features {
+  padding: 60px 0;
+}
+
+.features h2 {
+  font-size: 36px;
+  font-weight: bold;
+  margin-bottom: 40px;
+  text-align: center;
+}
+
+.features .card {
+  border: none;
+  text-align: center;
+}
+
+.features .card i {
+  color: #007bff;
+  font-size: 48px;
+  margin-bottom: 20px;
+}
+
+.features .card h5 {
+  font-size: 24px;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+.features .card p {
+  font-size: 16px;
+}
+
+/* Plans Section */
+.plans {
+  background-color: #f8f9fa;
+  padding: 60px 0;
+}
+
+.plans h2 {
+  font-size: 36px;
+  font-weight: bold;
+  margin-bottom: 40px;
+  text-align: center;
+}
+
+.plans .card {
+  border: none;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+}
+
+.plans .card-body {
+  padding: 40px;
+}
+
+.plans .card-title {
+  font-size: 24px;
+  font-weight: bold;
+  margin-bottom: 20px;
+}
+
+.plans .card-text {
+  font-size: 16px;
+  margin-bottom: 20px;
+}
+
+.plans .btn {
+  font-size: 18px;
+  padding: 12px 30px;
+}
+
+/* Testimonials Section */
+.testimonials {
+  padding: 60px 0;
+}
+
+.testimonials h2 {
+  font-size: 36px;
+  font-weight: bold;
+  margin-bottom: 40px;
+  text-align: center;
+}
+
+.testimonials .blockquote {
+  font-size: 20px;
+  font-style: italic;
+  margin-bottom: 20px;
+}
+
+.testimonials .blockquote-footer {
+  font-size: 16px;
+  font-weight: bold;
+}
+
+/* Call-to-Action Section */
+.cta {
+  background-color: #007bff;
+  color: #fff;
+  padding: 60px 0;
+}
+
+.cta h2 {
+  font-size: 36px;
+  font-weight: bold;
+  margin-bottom: 20px;
+}
+
+.cta p {
+  font-size: 24px;
+  margin-bottom: 40px;
+}
+
+.cta .btn {
+  font-size: 18px;
+  padding: 12px 30px;
+}

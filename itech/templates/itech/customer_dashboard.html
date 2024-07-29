@@ -1,0 +1,61 @@
+{% extends 'itech/customerbase.html' %}
+{% load static %}
+{% block content %}
+
+<!-- main content -->
+<div class="wrapper">
+
+    <!-- ****** cards start ********** -->
+    <div class="row">
+        <div class="col-3 col-m-6 col-sm-6">
+            <div class="counter bg-primary">
+                <p>
+                    <i class="fas fa-tasks"></i>
+                </p>
+                <h3>{{ subscriptions.count }}</h3>
+                <p>Active Subscriptions</p>
+            </div>
+        </div>
+        <div class="col-3 col-m-6 col-sm-6">
+            <div class="counter bg-warning">
+                <p>
+                    <i class="fas fa-spinner"></i>
+                </p>
+                <h3>{{ open_tickets.count }}</h3>
+                <p>Open Support Tickets</p>
+            </div>
+        </div>
+        <div class="col-3 col-m-6 col-sm-6">
+            <div class="counter bg-success">
+                <p>
+                    <i class="fas fa-check-circle"></i>
+                </p>
+                <h3>{{ resolved_tickets.count }}</h3>
+                <p>Resolved Support Tickets</p>
+            </div>
+        </div>
+        <div class="col-3 col-m-6 col-sm-6">
+            <div class="counter bg-danger">
+                <p>
+                    <i class="fas fa-rupee-sign"></i>
+                </p>
+                <h3>${{ total_bill }}</h3>
+                <p>Total Bill</p>
+            </div>
+        </div>
+    </div>
+    <br><br><br><br>
+    
+    <marquee behavior="scroll" direction="left">
+        <img src="{% static 'images/plan1.png' %}" width="120" height="80" alt="Plan 1" />
+        <img src="{% static 'images/plan2.png' %}" width="120" height="80" alt="Plan 2" />
+        <img src="{% static 'images/plan3.png' %}" width="120" height="80" alt="Plan 3" />
+        <img src="{% static 'images/plan4.png' %}" width="120" height="80" alt="Plan 4" />
+    </marquee>
+    <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+
+    <!-- ****** cards end ********** -->
+
+</div>
+<!-- end main content -->
+{% endblock content %}

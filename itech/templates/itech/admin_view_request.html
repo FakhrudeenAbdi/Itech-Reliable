@@ -1,0 +1,56 @@
+{% extends 'itech/adminbase.html' %}
+{% block content %}
+
+	<!-- main content -->
+	<div class="wrapper">
+
+<!-- ****** table  start ********** -->
+		<div class="row">
+			<div class="col-12 col-m-12 col-sm-12">
+				<div class="card">
+					<div class="card-header">
+						<h3 style="color:red; text-align:center" >Support Tickets Made By Customers
+						</h3>
+
+					</div>
+					<div class="card-content">
+						<table>
+							<thead>
+                <tr>
+                  <th>Customer Name</th>
+
+                  <th>Ticket Title</th>
+                  <th>Description</th>
+
+                  <th>Status</th>
+                  <th>Assign Technician</th>
+                  <th>Delete</th>
+                </tr>
+							</thead>
+							<tbody>
+                {% for ticket in tickets %}
+                <tr>
+
+                  <td> {{ticket.customer.user.username}}</td>
+
+
+                  <td> {{ticket.title}}</td>
+                  <td>{{ticket.description}}</td>
+                  <td>{{ticket.status}}</td>
+
+                  <td><a  style="color:red; text-decoration:none;font-size:25px;" href="{% url 'admin_assign_technician' ticket.id  %}">&#9998;</a></td>
+                  <td><a style="color:blue; text-decoration:none;font-size:25px;"href="{% url 'admin_delete_ticket' ticket.id  %}">&#10008;</a></td>
+                </tr>
+                {% endfor %}
+
+							</tbody>
+						</table>
+					</div>
+				</div>
+			</div>
+		</div>
+<!-- ****** table start ********** -->
+<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+	</div>
+	<!-- end main content -->
+{% endblock content %}

@@ -1,0 +1,28 @@
+{% extends 'itech/customerbase.html' %}
+{% block content %}
+<h1>Billing History</h1>
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th>Invoice Date</th>
+            <th>Amount</th>
+            <th>Status</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for invoice in billing_history %}
+        <tr>
+            <td>{{ invoice.date }}</td>
+            <td>${{ invoice.amount }}</td>
+            <td>
+                {% if invoice.is_paid %}
+                    <span class="badge badge-success">Paid</span>
+                {% else %}
+                    <span class="badge badge-danger">Unpaid</span>
+                {% endif %}
+            </td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+{% endblock %}

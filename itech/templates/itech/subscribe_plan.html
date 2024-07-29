@@ -1,0 +1,23 @@
+{% extends 'itech/customerbase.html' %}
+{% block content %}
+<h1>Subscribe to a Plan</h1>
+<form method="post">
+    {% csrf_token %}
+    <div class="form-group">
+        <label for="plan">Select a Plan</label>
+        <select class="form-control" id="plan" name="plan">
+            {% for plan in plans %}
+            <option value="{{ plan.id }}">{{ plan.name }}</option>
+            {% endfor %}
+        </select>
+    </div>
+    <div class="form-group">
+        <label for="payment_method">Select Payment Method</label>
+        <select class="form-control" id="payment_method" name="payment_method">
+            <option value="credit_card">Credit Card</option>
+            <option value="paypal">PayPal</option>
+        </select>
+    </div>
+    <button type="submit" class="btn btn-primary">Subscribe</button>
+</form>
+{% endblock %}

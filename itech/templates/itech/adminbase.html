@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1.0, user-scalable=0, minimum-scale=1.0, maximum-scale=1.0">
+    <link rel="icon" type="image/png" href="{% static 'assets/AT-pro-logo.png' %}">
+
+    <!-- Import lib -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.3/Chart.min.css">
+    <link rel="stylesheet" href="{% static 'fontawesome-free/css/all.min.css' %}">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="{% static 'style.css' %}">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <!-- End import lib -->
+    
+    <style>
+        .navbar {
+            background-color: #343a40;
+            color: white;
+        }
+
+        .navbar-nav .nav-link {
+            color: white !important;
+        }
+
+        .navbar-search {
+            display: flex;
+            align-items: center;
+        }
+
+        .navbar-search-input {
+            border-radius: 4px;
+            padding: 5px;
+            border: 1px solid #ccc;
+        }
+
+        .dropdown-menu {
+            right: 0;
+            left: auto;
+        }
+
+        .sidebar {
+            background-color: #343a40;
+            color: white;
+            height: 100vh;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 250px;
+            padding: 20px;
+        }
+
+        .sidebar-nav-link {
+            color: white;
+        }
+
+        .sidebar-nav-link:hover {
+            color: #007bff;
+        }
+
+        .content {
+            margin-left: 270px;
+            padding: 20px;
+        }
+
+        .card {
+            margin-bottom: 20px;
+        }
+
+        .card-header {
+            background-color: #007bff;
+            color: white;
+        }
+
+        .table thead th {
+            background-color: #007bff;
+            color: white;
+        }
+
+        .table tbody tr:nth-child(odd) {
+            background-color: #f2f2f2;
+        }
+    </style>
+</head>
+<body>
+    <!-- navbar -->
+    <nav class="navbar navbar-expand-lg navbar-dark">
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item">
+                    <a class="nav-link" href="#" onclick="collapseSidebar()">
+                        <i class="fas fa-bars"></i>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <h3 class="mb-0">Vehicle Service Management</h3>
+                </li>
+            </ul>
+            <form class="form-inline my-2 my-lg-0 navbar-search">
+                <input class="form-control mr-sm-2 navbar-search-input" type="search" placeholder="What you looking for..." aria-label="Search">
+                <i class="fas fa-search"></i>
+            </form>
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item">
+                    <a class="nav-link" href="#" onclick="switchTheme()">
+                        <i class="fas fa-moon dark-icon"></i>
+                        <i class="fas fa-sun light-icon"></i>
+                    </a>
+                </li>
+                <li class="nav-item dropdown">
+									<a class="nav-link dropdown-toggle" href="#" id="userMenu" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+											<img src="{% static 'images/admin.png' %}" alt="User image" class="rounded-circle" width="40" height="40">
+									</a>
+									<div class="dropdown-menu" aria-labelledby="userMenu">
+											<form action="{% url 'logout' %}" method="post" style="display: inline;">
+													{% csrf_token %}
+													<button type="submit" class="dropdown-item">
+															<i class="fas fa-sign-out-alt"></i> Logout
+													</button>
+											</form>
+									</div>
+							</li>
+            </ul>
+        </div>
+    </nav>
+    <!-- end navbar -->
+
+    <!-- sidebar -->
+    <div class="sidebar">
+        <ul class="nav flex-column">
+            <li class="nav-item">
+                <a class="nav-link" href="/admin-dashboard">
+                    <i class="fas fa-tachometer-alt"></i> Dashboard
+                </a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="/admin-customer">
+                    <i class="fas fa-users"></i> Customer
+                </a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="/admin-technician">
+                    <i class="fas fa-hat-cowboy"></i> Technician
+                </a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="/admin-request">
+                    <i class="fas fa-spinner"></i> Request
+                </a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="/admin-report">
+                    <i class="fas fa-coins"></i> Report
+                </a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="/admin-feedback">
+                    <i class="fas fa-comments"></i> Feedback
+                </a>
+            </li>
+        </ul>
+    </div>
+    <!-- end sidebar -->
+
+    <!-- content -->
+    <div class="content">
+        {% block content %}
+        {% endblock content %}
+    </div>
+    <!-- end content -->
+
+    <!-- import script -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.3/Chart.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script src="{% static 'index.js' %}"></script>
+    <!-- end import script -->
+</body>
+</html>

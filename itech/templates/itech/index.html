@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ITECH Reliable - Your Trusted ISP Management</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="{% static 'style.css' %}">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+        }
+
+        .jumbotron {
+            background-image: url('{% static "images/bg4.png" %}');
+            background-size: cover;
+            background-position: center;
+            height: 400px;
+            color: white;
+            margin-bottom: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+        }
+
+        .jumbotron h1 {
+            font-size: 3rem;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
+        }
+
+        .marquee-wrapper {
+            overflow: hidden;
+            position: relative;
+            background-color: #f8f9fa;
+            padding: 10px 0;
+        }
+
+        .marquee-content {
+            display: flex;
+            white-space: nowrap;
+            animation: marquee 15s linear infinite;
+        }
+
+        .marquee-content img {
+            margin: 0 15px;
+        }
+
+        @keyframes marquee {
+            0% { transform: translateX(100%); }
+            100% { transform: translateX(-100%); }
+        }
+
+        .features, .testimonials, .cta {
+            margin-top: 50px;
+            padding: 20px 0;
+        }
+
+        .feature-item, .testimonial-item {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        .feature-item h3 {
+            color: #007bff;
+        }
+
+        .cta {
+            background-color: #074787;
+            color: white;
+            padding: 30px;
+            text-align: center;
+        }
+
+        .cta h2 {
+            margin-bottom: 20px;
+        }
+
+        footer {
+            background-color: #343a40;
+            color: white;
+            padding: 20px 0;
+            text-align: center;
+        }
+    </style>
+</head>
+
+<body>
+    {% include 'itech/navbar.html' %}
+
+    <div class="jumbotron">
+        <h1>Welcome to ITECH Reliable ISP Management</h1>
+    </div>
+
+    <div class="marquee-wrapper">
+        <div class="marquee-content">
+            <img src="{% static 'images/logo.png' %}" width="120" height="80" alt="logo1">
+            <img src="{% static 'images/itech profile-pages-images-9.jpg' %}" width="120" height="80" alt="logo2">
+            <img src="{% static 'images/logo3.png' %}" width="120" height="80" alt="logo3">
+            <img src="{% static 'images/logo4.png' %}" width="120" height="80" alt="logo4">
+            <img src="{% static 'images/logo5.png' %}" width="120" height="80" alt="logo5">
+        </div>
+    </div>
+
+    <div class="container mt-5 features">
+        <h2 class="text-center">Why Choose Us?</h2>
+        <div class="row">
+            <div class="col-md-4 feature-item">
+                <h3>Lightning-Fast Speeds</h3>
+                <p>Enjoy seamless streaming, gaming, and browsing with our high-speed internet plans.</p>
+            </div>
+            <div class="col-md-4 feature-item">
+                <h3>Reliable Connectivity</h3>
+                <p>Stay connected with our robust network infrastructure, designed for maximum uptime.</p>
+            </div>
+            <div class="col-md-4 feature-item">
+                <h3>24/7 Customer Support</h3>
+                <p>Our dedicated support team is always here to help you with any issues you may encounter.</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="container mt-5 testimonials">
+        <h2 class="text-center">What Our Customers Say</h2>
+        <div class="row">
+            <div class="col-md-4 testimonial-item">
+                <blockquote class="blockquote">
+                    <p class="mb-0">"ITECH Reliable has changed the way I work from home. The speed is incredible!"</p>
+                    <footer class="blockquote-footer">John Doe, <cite title="Source Title">Freelancer</cite></footer>
+                </blockquote>
+            </div>
+            <div class="col-md-4 testimonial-item">
+                <blockquote class="blockquote">
+                    <p class="mb-0">"Their customer service is unmatched. Always ready to assist!"</p>
+                    <footer class="blockquote-footer">Jane Smith, <cite title="Source Title">Small Business Owner</cite></footer>
+                </blockquote>
+            </div>
+            <div class="col-md-4 testimonial-item">
+                <blockquote class="blockquote">
+                    <p class="mb-0">"Affordable plans that fit my budget. Highly recommend ITECH!"</p>
+                    <footer class="blockquote-footer">Alice Johnson, <cite title="Source Title">Home User</cite></footer>
+                </blockquote>
+            </div>
+        </div>
+    </div>
+
+    <div class="cta">
+        <h2>Join ITECH Reliable Today!</h2>
+        <p>Experience the best in internet services. Sign up now and enjoy exclusive benefits!</p>
+        <a href="{% url 'customerclick' %}" class="btn btn-light">Get Started</a>
+    </div>
+
+    <div class="container mt-5">
+        {% include 'itech/customer_technician_cards.html' %}
+    </div>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2024 ITECH Reliable. All rights reserved.</p>
+            <p>Contact us: <a href="mailto:info@itechreliable.com" style="color: white;">info@itechreliable.com</a> | Phone: (123) 456-7890</p>
+        </div>
+    </footer>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+
+</html>

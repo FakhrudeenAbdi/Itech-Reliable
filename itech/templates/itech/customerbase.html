@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+{% load static bootstrap4 %}
+<html>
+<head>
+    <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1.0, user-scalable=0, minimum-scale=1.0, maximum-scale=1.0">
+    <link rel="icon" type="image/png" href="{% static 'assets/AT-pro-logo.png' %}"/>
+
+    <!-- Import lib -->
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.3/Chart.min.css">
+    <link rel="stylesheet" type="text/css" href="{% static 'fontawesome-free/css/all.min.css' %}">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
+    <!-- End import lib -->
+
+    <!-- Use bootstrap_css tag to include Bootstrap CSS -->
+    {% bootstrap_css %}
+
+    <link rel="stylesheet" type="text/css" href="{% static 'style.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'custom.css' %}"> <!-- Additional custom styles -->
+</head>
+<body class="overlay-scrollbar">
+    <!-- navbar -->
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <a class="navbar-brand" href="{% url 'customer-dashboard' %}">iTech ISP Management</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item">
+                    <a class="nav-link" href="#" onclick="collapseSidebar()"><i class="fas fa-bars"></i></a>
+                </li>
+            </ul>
+            <form class="form-inline my-2 my-lg-0">
+                <input class="form-control mr-sm-2" type="search" placeholder="What are you looking for..." aria-label="Search">
+                <button class="btn btn-outline-success my-2 my-sm-0" type="submit"><i class="fas fa-search"></i></button>
+            </form>
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item">
+                    <a class="nav-link" href="#" onclick="switchTheme()"><i class="fas fa-moon dark-icon"></i><i class="fas fa-sun light-icon"></i></a>
+                </li>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        <i class="fas fa-user-tie"></i>
+                    </a>
+                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                        <a class="dropdown-item" href="{% url 'customer-profile' %}">Profile</a>
+                        <div class="dropdown-divider"></div>
+                        <form action="{% url 'logout' %}" method="post" style="display: inline;">
+                            {% csrf_token %}
+                            <button type="submit" class="dropdown-item">
+                                <i class="fas fa-sign-out-alt"></i> Logout
+                            </button>
+                        </form>
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </nav>
+    <!-- end navbar -->
+
+    <!-- sidebar -->
+    <div class="sidebar">
+        <ul class="list-group list-group-flush">
+            <li class="list-group-item">
+                <a href="{% url 'customer-dashboard' %}" class="sidebar-nav-link">
+                    <i class="fas fa-tachometer-alt"></i>
+                    <span>Dashboard</span>
+                </a>
+            </li>
+            <li class="list-group-item">
+                <a href="{% url 'customer-request' %}" class="sidebar-nav-link">
+                    <i class="fas fa-spinner"></i>
+                    <span>Submit Ticket</span>
+                </a>
+            </li>
+            <li class="list-group-item">
+                <a href="{% url 'customer-invoice' %}" class="sidebar-nav-link">
+                    <i class="fas fa-rupee-sign"></i>
+                    <span>Invoices</span>
+                </a>
+            </li>
+            <li class="list-group-item">
+                <a href="{% url 'customer-feedback' %}" class="sidebar-nav-link">
+                    <i class="fas fa-comments"></i>
+                    <span>Feedback</span>
+                </a>
+            </li>
+        </ul>
+    </div>
+    <!-- end sidebar -->
+
+    <div>
+        <!-- content start -->
+        <div class="content">
+            {% block content %}
+            {% endblock content %}
+        </div>
+        <!-- content end -->
+    </div>
+
+    <!-- import script -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.3/Chart.min.js"></script>
+    <script src="{% static 'index.js' %}"></script>
+    <!-- Use bootstrap_javascript tag to include Bootstrap JS and its dependencies -->
+    {% bootstrap_javascript jquery='full' %}
+    <!-- end import script -->
+</body>
+</html>
